@@ -1,15 +1,18 @@
 name: Init ACR
+
 on:
-workflow_dispatch: # déclenchement manuel
+  workflow_dispatch: # déclenchement manuel
+
 jobs:
-build-push:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout
-uses: actions/checkout@v3
-- name: Build & Push Docker image
-run: |
-echo "${{ secrets.ACR_PASSWORD }}" | docker login <acrname>.azurecr.io -u ${{
-secrets.ACR_USERNAME }} --password-stdin
-docker build -t <acrname>.azurecr.io/tp2-cicd:initial .
-docker push <acrname>.azurecr.io/tp2-cicd:initial
+  build-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build & Push Docker image to ACR
+        run: |
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login acrtp2an.azurecr.io -u ${{ secrets.ACR_USERNAME }} --password-stdin
+          docker build -t acrtp2an.azurecr.io/tp2-cicd:initial .
+          docker push acrtp2an.azurecr.io/tp2-cicd:initial
