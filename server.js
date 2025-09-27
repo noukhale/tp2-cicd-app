@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 app.get('/', (req, res) => {
-res.send('Hello CI/CD with GitHub and Azure Container Apps!');
+res.send('Hello CI/CD with GitHub and Azure Container Apps2!');
 });
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
