@@ -16,3 +16,4 @@ jobs:
           echo "${{ secrets.ACR_PASSWORD }}" | docker login acrtp2an.azurecr.io -u ${{ secrets.ACR_USERNAME }} --password-stdin
           docker build -t acrtp2an.azurecr.io/tp2-cicd:initial .
           docker push acrtp2an.azurecr.io/tp2-cicd:initial
+          
