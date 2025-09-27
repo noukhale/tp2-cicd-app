@@ -29,11 +29,11 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Log in to ACR
-        run: az acr login --name acrwe123
+        run: az acr login --name acrtp2an
 
       - name: Build & Push Docker image to ACR
         run: |
-          IMAGE=acrwe123.azurecr.io/tp2-cicd:latest
+          IMAGE=acrtp2an.azurecr.io/tp2-cicd:latest
           docker build -t $IMAGE .
           docker push $IMAGE
 
@@ -57,7 +57,7 @@ jobs:
             az containerapp update \
               --name aca-tp2-staging \
               --resource-group rg-tp2 \
-              --image acrwe123.azurecr.io/tp2-cicd:latest
+              --image acrtp2an.azurecr.io/tp2-cicd:latest
 
   # Étape 3 : Déploiement sur PROD
   deploy-prod:
@@ -80,4 +80,4 @@ jobs:
             az containerapp update \
               --name aca-tp2-prod \
               --resource-group rg-tp2 \
-              --image acrwe123.azurecr.io/tp2-cicd:latest
+              --image acrtp2an.azurecr.io/tp2-cicd:latest
