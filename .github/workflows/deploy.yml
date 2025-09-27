@@ -55,7 +55,7 @@ jobs:
         with:
           inlineScript: |
             az containerapp update \
-              --name aca-tp2-staging \
+              --name aca-tp2-staging-an \
               --resource-group rg-tp2 \
               --image acrtp2an.azurecr.io/tp2-cicd:latest
 
