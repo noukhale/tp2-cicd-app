@@ -56,7 +56,7 @@ jobs:
           inlineScript: |
             az containerapp update \
               --name aca-tp2-staging-an \
-              --resource-group rg-tp2 \
+              --resource-group rg-cicd-AN \
               --image acrtp2an.azurecr.io/tp2-cicd:latest
 
   # Étape 3 : Déploiement sur PROD
